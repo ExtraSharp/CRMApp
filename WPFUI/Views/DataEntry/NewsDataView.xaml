@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="WPFUI.Views.DataEntry.NewsDataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+             xmlns:local="clr-namespace:WPFUI.Views.DataEntry"
+             mc:Ignorable="d" FontSize="15"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Style="{DynamicResource EntryTextBlock}" Visibility="{Binding CompanyVisibility}">Company</TextBlock>
+
+        <ComboBox x:Name="Companies" Grid.Row="0" Grid.Column="1" SelectedItem="{ Binding SelectedCompany }" 
+                  Style="{DynamicResource EntryComboBox}" Visibility="{Binding CompanyVisibility}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
+        <TextBlock Grid.Row="1" Grid.Column="0" Style="{DynamicResource EntryTextBlock}">Source</TextBlock>
+        <TextBox x:Name="Source" Grid.Row="1" Grid.Column="1" Style="{DynamicResource EntryTextbox}" />
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Style="{DynamicResource EntryTextBlock}">Date</TextBlock>
+        <DatePicker x:Name="Date" Grid.Row="2" Grid.Column="1" Style="{DynamicResource EntryDatePicker}" Text=""/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Style="{DynamicResource EntryTextBlock}">Priority</TextBlock>
+        <ComboBox x:Name="Priorities" Grid.Row="3" Grid.Column="1" Style="{DynamicResource EntryComboBox}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding }" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>        
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Style="{DynamicResource EntryTextBlock}">Details</TextBlock>
+        <TextBox x:Name="Details" Grid.Row="4" Grid.Column="1" Style="{DynamicResource NotesTextbox}" TextWrapping="Wrap"/>
+
+        <Button x:Name="Save" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Width="120" Height="50" Margin="20" Padding="0 10" Content="{Binding ButtonText}"/> 
+
+    </Grid>
+</UserControl>

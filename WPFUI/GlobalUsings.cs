@@ -1,0 +1,12 @@
+﻿global using System.Windows;
+global using System;
+global using System.Linq;
+global using System.Windows.Data;
+global using Caliburn.Micro;
+global using DataAccessLibrary;
+global using DataAccessLibrary.Models;
+global using WPFUI.ViewModels;
+global using WPFUI.ViewModels.DataEntry;
+global using DataAccessLibrary.Models;
+global using System.Dynamic;
+global using System.Collections.Generic;
